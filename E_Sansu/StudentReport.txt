@@ -1,0 +1,26 @@
+The average score = 60.0
+
+The Maximum score = 70.0
+
+The student(s) with the maximum score: 
+dack
+
+GRADE REPORT
+bob - F
+job - F
+dack - C
+
+The average score = 84.05
+
+The Maximum score = 98.75
+
+The student(s) with the maximum score: 
+Tom
+Ram
+
+GRADE REPORT
+Rob - B
+Bob - C
+Tom - A
+Job - F
+Ram - A
