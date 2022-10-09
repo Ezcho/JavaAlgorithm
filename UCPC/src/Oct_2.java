@@ -5,15 +5,7 @@ import java.util.StringTokenizer;
 
 
 
-public class Oct_2 {
-
-    int name;
-    int age;
-    static String rank = "silver";
-
-
-
-
+public class Oct_2{
     public static void main(String args[])throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -33,21 +25,29 @@ public class Oct_2 {
         int b1 = ccw(x3,x4,x1,y3,y4,y1);
         int b2 = ccw(x3,x4,x2,y3,y4,y2);
 
-        boolean case1 = (a1 * a2 < 0)&&(b1 * b2 < 0);
-        boolean case2 = (a1 * a2 == 0)&&(b1 * b2 < 0);
-        boolean case3 = (a1 * a2 < 0)&&(b1 * b2 == 0);
-        boolean case4 = (a1 * a2 ==0)&&(b1 * b2 == 0)
-        boolean case6(((x1<=x3)&&(x3<=x2))||((x1<=x4)&&(x4<=x2))||((x2<=x3)&&(x3<=x1))||((x2<=x4)&&(x4<=x1)));
-        boolean case5 = (a1 * a2 ==0)&&(b1 * b2 == 0)&&(a1!=a2);
+        boolean res = false;
+        boolean equal = false;
+        if(a1 * a2 == 0 && b1 * b2 == 0) {
+            equal = true;
+            if (check_x(x1,x2,x3,x4) && check_y(y1,y2,y3,y4)) {
+                res = true;
+            }
+        }
+        if((a1 * a2 <=0)&&(b1 * b2 <=0)){
+            if(!equal){
+                res = true;
+            }
+        }
 
-        if(case1||case2||case3||case4||case5)
+
+        if(res)
             System.out.println("1");
         else
             System.out.println("0");
 
-
     }
-    public static int ccw(long x1, long x2, long x3, long y1, long y2, long y3){
+
+    public static int ccw(long x1,long x2,long x3,long y1,long y2,long y3){
         long a = x1 * y2 + x2 * y3 + x3 * y1;
         long b = y1 * x2 + y2 * x3 + y3 * x1;
         if (a - b < 0)
@@ -58,4 +58,16 @@ public class Oct_2 {
             return -1;
     }
 
+    public static boolean check_x(long x1, long x2, long x3 ,long x4 ){
+        boolean a = Math.min(x1,x2)<=Math.max(x3,x4);
+        boolean b = Math.min(x3,x4)<=Math.max(x1,x2);
+        return(a&&b);
+
+    }
+    public static boolean check_y(long y1, long y2,long y3 ,long y4 ){
+        boolean a = Math.min(y1,y2)<= Math.max(y3,y4);
+        boolean b = Math.min(y3,y4)<= Math.max(y1,y2);
+        return(a&&b);
+
+    }
 }

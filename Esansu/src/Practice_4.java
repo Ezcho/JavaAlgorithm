@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Practice_4 {
 
-    static int Num[][] = new int[16][16];
+    static int Num[][] = new int[800][800];
     public static int cnt = 0;
 
     public static void main(String args[]) {
@@ -14,7 +14,7 @@ public class Practice_4 {
         double pow = Math.pow(2, N);
         int size = (int)pow;
 
-        Num[hole_y-1][hole_x-1] = -1;
+        Num[size-hole_y][hole_x-1] = -1;
         tile_board_DC(size, 0, 0);
         Print_tile(Math.pow(2,N));
     }
@@ -60,5 +60,4 @@ public class Practice_4 {
             }
         return true;
     }
-
 }
